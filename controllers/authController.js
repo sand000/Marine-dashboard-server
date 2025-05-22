@@ -39,7 +39,16 @@ const login = async (req, res) => {
     if (!jwtToken) {
       res.status(400).json({ message: "Error generating token" });
     }
-    res.status(200).json({ message: "User Logged in successfully", token: jwtToken });
+    res.status(200).json({
+      message: "User Logged in successfully",
+      data: {
+        token: jwtToken,
+        user: {
+          name: "Sandhya",
+          email: "sandhya@example.com",
+        },
+      },
+    });
   } catch (error) {
     res.status(500).json({ message: "Invalid credentials" });
   }
