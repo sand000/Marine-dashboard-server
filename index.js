@@ -10,11 +10,8 @@ const dbConnect = require("./config/db");
 
 dbConnect();
 app.use(express.json());
-app.use(
-  cors({
-    origin: ["http://localhost:5173", "https://tranquil-mousse-91f5cf.netlify.app/"],
-  }),
-);
+
+app.use(cors());
 
 app.use("/auth", authRoute);
 app.use("/ship", shipRoute);
